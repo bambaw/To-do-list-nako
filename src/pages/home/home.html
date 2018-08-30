@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar no-border-top>
-    <button  ion-button icon-only menuToggle>
+  <ion-toolbar color="orangepiss" no-border-top>
+    <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>To-Do-List ni Bambaw</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="shit">
 
 	<ion-menu [content]="content">
 		<ion-content>
@@ -44,7 +44,7 @@
 
 	<ion-list>
         <ion-item-sliding *ngFor="let t of todoList">
-			<ion-item>
+			<ion-item color="notespiss">
 				<ion-label>{{t}}</ion-label>
 				<ion-checkbox color="dark"></ion-checkbox>
 			</ion-item>

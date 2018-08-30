@@ -38,12 +38,17 @@ export class HomePage {
     }
 	
 	edit(item) {
-		var index = this.todoList.indexOf(item, 0);
-        if (index > -1 && this.todo != "") {
-            this.todoList[index] = this.todo;
-			this.dataService.save(this.todoList);
-			this.todo = "";
-        }
+		if(this.todo == "") {
+			null;
+		}
+		else{
+			var index = this.todoList.indexOf(item, 0);
+			if (index > -1 && this.todo != "") {
+				this.todoList[index] = this.todo;
+				this.dataService.save(this.todoList);
+				this.todo = "";
+			}
+		}
 	}
 	
     
