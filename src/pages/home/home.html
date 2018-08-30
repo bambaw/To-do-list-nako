@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar no-border-top>
+    <button  ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>To-Do-List ni Bambaw</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+	<ion-menu [content]="content">
+		<ion-content>
+			<ion-list>
+			
+				<ion-item>
+					To add item/s to list:
+					<ol>
+						<li>Enter text in textbox</li>
+						<li>Click "Meh" button</li>
+					</ol>
+				</ion-item>
+				
+				<ion-item>
+					To edit item/s from list:
+					<ol>
+						<li>Enter text in textbox</li>
+						<li>Slide item to the left</li>
+						<li>Click edit</li>
+					</ol>
+				</ion-item>
+				
+				<ion-item>
+					To delete item/s from list:
+					<ol>
+						<li>Slide item to the left</li>
+						<li>Click delete</li>
+					</ol>
+				</ion-item>
+			</ion-list>
+		</ion-content>
+	</ion-menu>
+	<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
+	<ion-list>
+        <ion-item-sliding *ngFor="let t of todoList">
+			<ion-item>
+				<ion-label>{{t}}</ion-label>
+				<ion-checkbox color="dark"></ion-checkbox>
+			</ion-item>
+				
+			<ion-item-options side="right">
+				<button ion-button outline color="balanced" item-right (click)="edit(t)">Edit</button>
+				
+				<button ion-button outline color="danger" item-right (click)="delete(t)">Delete</button>
+			</ion-item-options>
+				
+        </ion-item-sliding>
+	</ion-list>
+	
+
+</ion-content>
+
+<ion-footer>
+	<ion-item>
+		<ion-input [(ngModel)]="todo" placeholder="What do you want to do?" type="text"></ion-input>
+    </ion-item>
+
+    <button class="add-button" ion-button full color="dark" (click)="add()">Meh, do it later</button>
+</ion-footer>
